@@ -1,0 +1,130 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+int main()
+
+{
+
+	int integer[9], SkillsTest[9], MachineProblems[2], MajorExams;
+	double  Average, AverageME, percentagei, percentagej, percentagek, sum, AverageP, AverageF, TotalAvg;
+	int i,j, k, Prelims, Finals;
+	cout.precision(4);
+	
+	string name[50];
+	cout << "Student Name: " << endl;
+    for (int counter = 0; counter < 50; counter ++)
+    {
+        cout << counter + 1 << ". ";
+        getline(cin,name[counter]);
+	
+	cout<<"Enter the grade of the student" << endl;
+	for (i = 0; i < 9; i ++)
+    {
+        cout << "Experiment  "<< i+1 <<" = "; cin >> integer[i];    
+	}
+		
+	sum=0;
+	for (i=0; i<9; i++)
+	sum=sum+integer[i];
+	Average=sum/9;
+	percentagei= Average*.10;
+	cout<<"Average for Experiment is: "<<Average<<endl;
+	cout<<"score in perecentage is: "<<percentagei<<"%"<<endl;
+	cout<<endl;
+	
+	cout<<"Enter grades for skills test: "<<endl;
+	for (j=0; j<9; j++)
+	{
+	cout<<"Skills Test "<<j+1<<" = "; cin>>SkillsTest[j];
+	}
+	sum=0;
+	for (j=0; j<9; j++)
+	sum=sum+SkillsTest[j];
+	Average=sum/9;
+	percentagej=Average*.20;
+	cout<<"Average for Skills Test is: "<<Average<<endl;
+	cout<<"score in perecentage is: "<<percentagej<<"%"<<endl;
+	cout<<endl;
+	
+	cout<<"Enter grades for machine problems: "<<endl;
+	for (k=0; k<2; k++)
+	{
+	cout<<"Machine problem "<<k+1<<" = "; cin>>MachineProblems[k];
+	}
+	sum=0;
+	for (k=0; k<2; k++)
+	sum=sum+MachineProblems[k];
+	Average=sum/2;
+	percentagek=Average*.20;
+	cout<<"Average for Machine Problems is: "<<Average<<endl;
+	cout<<"score in perecentage is: "<<percentagek<<"%"<<endl;
+	cout<<endl;
+	
+{	
+	cout<<"MAJOR EXAMS"<<endl;
+	cout<<"Enter Prelims score: "<<endl;
+	cin>>Prelims; 
+	AverageP=Prelims*.20;
+	cout<<"Enter Finals score: "<<endl;
+	cin>>Finals;
+	AverageF=Finals*.30;
+	AverageME=AverageF+AverageP;
+	cout<<"perecentage score in MAJOR EXAMS: "<<AverageME<<"%"<<endl;
+	cout<<endl;
+}
+	TotalAvg=percentagei + percentagej + percentagek + AverageME;
+	cout<<"Total average is: "<<TotalAvg<<"%"<<endl;
+	
+	if (TotalAvg >= 95.57)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 1.00 - Passed" ;
+	}
+	else if (TotalAvg < 95.57 && TotalAvg >= 91.12)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 1.25 - Passed" ;
+	}
+	else if (TotalAvg < 91.12 && TotalAvg >=86.68)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 1.50 - Passed" ;
+	}
+	else if (TotalAvg < 86.68 && TotalAvg >=82.23)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 1.75 - Passed" ;
+	}
+	else if (TotalAvg <82.22 && TotalAvg >= 77.79)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 2.00 - Passed" ;
+	}
+	else if (TotalAvg <77.79 && TotalAvg >=73.74)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 2.25 - Passed" ;
+	}
+	else if (TotalAvg < 73.34 && TotalAvg >=68.90)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 2.50 - Passed" ;
+	}
+	else if (TotalAvg < 68.90 && TotalAvg >=64.45)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 2.75 - Passed" ;
+	}
+	else if (TotalAvg < 64.45 && TotalAvg >=60.00)
+	{
+		cout<<"Congratulations "<<name[counter] <<" your grade is = 3.00 - Passed" ;
+	}
+	else
+	{
+		cout<<"Sorry, "<<name[counter]<<" your grade is = 5.00, you did not get the required grade to pass this subject";
+	}
+
+
+	cout<<endl;
+	cout << "Student Name: " << endl;
+	getline(cin,name[counter+1]);
+	
+
+}
+
+return 0;
+_getch();	
+}
