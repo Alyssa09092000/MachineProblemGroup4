@@ -1,0 +1,80 @@
+//A C++ program that would compute the following values based on the given sides of the triangle. 
+//Let the measurements of the sides be a user-input.
+//Compute for all interior angles.
+//Classify whether scalene, isosceles, or equilateral.
+//Determine the area and perimeter.
+//Classify whether acute triangle, right triangle, or obtuse triangle.
+//Compute for length of apothem and circumcenter.
+
+
+#include <iostream>
+#include <cmath>
+#include <conio.h> 
+using namespace std;
+
+int main()
+{
+    double a, b, c, aa, bb, cc, Aptm, Circumcntr;
+    double pi=3.14159265359;//pi is declared
+    double p, s, area;
+    
+    cout << "ENTER 3 SIDES OF TRIANGLE ^.^ \n\n";
+    
+    cout << "1st side: ";
+    cin >> a;//first side of the triangle
+    cout << "2nd side: ";
+    cin >> b;//second side of the triangle
+    cout << "3rd side: ";
+    cin >> c;//third side of the triangle
+    cout << "\n";
+    
+    aa = ((acos((pow(b, 2) + pow(c, 2) - pow(a, 2)) / (2 * b * c))) * (180)) / pi;	// Formula to calculate the point of angle A through the given sides
+	
+	bb = ((acos((pow(c, 2) + pow(a, 2) - pow(b, 2)) / (2 * c * a))) * (180)) / pi;	// Formula to calculate the point of angle B through the given sides
+
+	cc = ((acos((pow(a, 2) + pow(b, 2) - pow(c, 2)) / (2 * a * b))) * (180)) / pi;	// Formula to calculate the point of angle A through the given sides
+
+    cout<<"The first angle is: "<<aa<<endl;
+    cout<<"The second angle is: "<<bb<<endl;
+    cout<<"The third angle is: "<<cc<<endl;
+    
+    if ((a == b) && (b == c) && (a == c))
+    {
+    cout << "This triangle is an equilateral triangle! ^.^ \n\n";
+    }
+    if (((a == b) && ((a != c) || (b != c))) || ((a == c) && ((a != b) || (c != b))))
+    {
+       cout << "This triangle is an isosceles triangle! ^.^ \n\n";
+    }
+    if (a!=b && a!=c && b!=c)
+    {
+       cout << "This triangle is a scalene ^.^ \n\n";
+       cout << "\n" ;
+    }
+    
+    p = a + b + c;//formula to compute for the perimeter
+    cout << "The perimeter of the triangle is: " << p << "\n\n" ;
+    
+   s= p / 2;
+   area= sqrt (s*(s-a)*(s-b)*(s-c));// formula to compute for the area
+   cout << "The area of the triangle is: " << area << "\n\n" ;
+   
+   if ((a*a + b*b == c*c))
+     { cout << "This is a right triangle! \n\n" ; }
+        
+	if ((a*a + b*b < c*c ))
+      { cout << "This is an obtuse triangle! \n\n" ; }
+	
+	if ((a*a + b*b > c*c))
+	{	cout << "This is an acute triangle! \n\n" ; }
+	
+	Aptm = (2 * area) / p;//Formula to get the length of the apothem
+	cout<<"The Length of the Apothem is = "<<Aptm<<endl;
+	cout<<endl; 
+	Circumcntr = (a * b * c) / sqrt((a + b + c) * (a + b - c) * (c + a - b) * (a + b - c));//Formula to get the circumcenter
+	cout<<"The Circumcenter is = "<<Circumcntr<<endl;\
+	cout<<endl;
+		
+    _getch(); 
+    return 0;
+}
